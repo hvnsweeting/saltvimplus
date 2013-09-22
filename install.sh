@@ -1,16 +1,19 @@
 #!/bin/bash
 
+echo "This install script requires: vim git wget"
 #apt-get install -y vim git
 
 tempdir=$(mktemp -d)
 cd $tempdir
 git clone git://github.com/saltstack/salt-vim.git
 git clone git://github.com/hvnsweeting/snipmate.vim.git
+git clone git://github.com/lepture/vim-jinja.git
 if [ ! -d ~/.vim ]; then
   mkdir ~/.vim
 fi
-cp -r salt-vim/* ~/.vim
-cp -r snipmate.vim/* ~/.vim
+for dir in *; do
+    cp -r $dir/* ~/.vim
+done
 wget https://raw.github.com/hvnsweeting/hvnrc/master/vimrc
 cp vimrc ~/.vimrc
 rm -rf $tempdir
