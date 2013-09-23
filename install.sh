@@ -7,7 +7,6 @@ tempdir=$(mktemp -d)
 cd $tempdir
 git clone git://github.com/saltstack/salt-vim.git
 git clone git://github.com/hvnsweeting/snipmate.vim.git
-git clone git://github.com/lepture/vim-jinja.git
 if [ ! -d ~/.vim ]; then
   mkdir ~/.vim
 fi
