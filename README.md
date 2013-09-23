@@ -9,4 +9,6 @@ This vim setup support:
 
 - Snippet.vim: supports snippets for quickly write new state.
 
+- [vim-autoclose](https://github.com/Townk/vim-autoclose): automatically close chars
+
 - A simple vimrc
