@@ -8,11 +8,13 @@ cd $tempdir
 git clone git://github.com/saltstack/salt-vim.git
 git clone git://github.com/hvnsweeting/snipmate.vim.git
 
-if [ ! -d ~/.vim ]; then
-    mkdir ~/.vim
-else
-    cp -r ~/.vim /tmp/dotvim_`date +%Y%m%d_%H%M%S`
+if [ -d ~/.vim ]; then
+    backup_dir=/tmp/dotvim_`date +%Y%m%d_%H%M%S`
+    echo "BACKUP old ~/.vim to $backup_dir"
+    mv ~/.vim $backup_dir
 fi
+
+mkdir ~/.vim
 
 for dir in *; do
     cp -r $dir/* ~/.vim
