@@ -18,17 +18,17 @@ else
     venv_cmd=virtualenv
 fi
 
-code_only=$2
+code_only=$1
 $venv_cmd --system-site-packages $dest_dir
 . $dest_dir/bin/activate
 
 cd $dest_dir
 
 if [ -z $code_only ]; then
+    git clone git://github.com/saltstack/salt.git mainstream
+    pip install -e mainstream
+else
     wget https://github.com/saltstack/salt/archive/develop.tar.gz
     tar xzf develop.tar.gz
     pip install -e salt-develop
-else
-    git clone git://github.com/saltstack/salt.git mainstream
-    pip install -e mainstream
 fi
