@@ -5,6 +5,7 @@ echo "This install script requires: vim git wget"
 
 tempdir=$(mktemp -d)
 cd $tempdir
+git clone git://github.com/saltstack/salt-vim.git
 git clone git://github.com/hvnsweeting/snipmate.vim.git
 
 if [ -d ~/.vim ]; then
@@ -18,9 +19,6 @@ mkdir ~/.vim
 for dir in *; do
     cp -r $dir/* ~/.vim
 done
-
-# yaml vim
-wget -O ~/.vim/yaml.vim http://www.vim.org/scripts/download_script.php?src_id=2249
 
 wget -O ~/.vimrc https://raw.github.com/hvnsweeting/hvnrc/master/vimrc
 rm -rf $tempdir
