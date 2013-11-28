@@ -18,9 +18,9 @@ mkdir ~/.vim
 for dir in *; do
     cp -r $dir/* ~/.vim
 done
+
 # yaml vim
 wget -O ~/.vim/yaml.vim http://www.vim.org/scripts/download_script.php?src_id=2249
 
-wget https://raw.github.com/hvnsweeting/hvnrc/master/vimrc
-cp vimrc ~/.vimrc
+wget -O ~/.vimrc https://raw.github.com/hvnsweeting/hvnrc/master/vimrc
 rm -rf $tempdir
